@@ -1,3 +1,4 @@
+import AddBook from "@/pages/AddBook";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li className="list-none"><Link to='/books'>All Book</Link></li>
-                        <li className="list-none"><Link to='/books'>Borrow summary</Link></li>
+                        <li className="list-none"><Link to='/borrow-summary'>Borrow summary</Link></li>
                     </ul>
                 </div>
                 <h2 className="text-2xl font-medium">Library</h2>
@@ -20,11 +21,11 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li className="list-none"><Link to='/books'>All Book</Link></li>
-                    <li className="list-none"><Link to='/books'>Borrow summary</Link></li>
+                    <li className="list-none"><Link to='/borrow-summary'>Borrow summary</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <AddBook></AddBook>
             </div>
         </div>
     );

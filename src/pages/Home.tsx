@@ -1,9 +1,13 @@
+import FeaturedBook from "@/components/FeaturedBook/FeaturedBook";
+
 
 
 const Home = () => {
+   
     return (
         <div>
-            This is Home.....
+            <FeaturedBook></FeaturedBook>
+           
         </div>
     );
 };
