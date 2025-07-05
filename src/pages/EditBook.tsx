@@ -14,7 +14,7 @@ const EditBook = ({ bookId, onClose }) => {
     const { data } = useGetAllBooksQuery(undefined)
     const [editBook, ] = useEditBookMutation()
     const findBook = data.data.find(book => book._id === bookId) || {};
-    const { _id, title, author, description, genre, isbn, copies } = findBook;
+    const { _id, title, author, description, isbn, copies } = findBook;
     const [open, setOpen] = useState(false);
     const form = useForm()
 

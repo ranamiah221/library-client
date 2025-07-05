@@ -14,12 +14,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { useAddBookMutation } from "@/redux/api/baseApi";
 import { useState } from "react";
 import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const AddBook = () => {
     const [open, setOpen] = useState(false);
-    const [addBook] = useAddBookMutation()
+    const [addBook] = useAddBookMutation();
+    const navigate = useNavigate();
 
     const form = useForm()
 
@@ -42,6 +44,7 @@ const AddBook = () => {
                 icon: "success",
                 draggable: true
             });
+          navigate('/books')
         }
 
 
@@ -51,7 +54,7 @@ const AddBook = () => {
         <Dialog open={open} onOpenChange={setOpen}>
             <form>
                 <DialogTrigger asChild>
-                    <Button variant="outline">Add Book</Button>
+                    <Button className="bg-green-600 text-white rounded-lg" >Add Book</Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
@@ -68,7 +71,7 @@ const AddBook = () => {
                                         <FormItem>
                                             <FormLabel>Title</FormLabel>
                                             <FormControl>
-                                                <Input {...field} value={field.value || " "} />
+                                                <Input {...field} value={field.value || ""} required />
                                             </FormControl>
                                         </FormItem>
                                     )}
@@ -81,7 +84,7 @@ const AddBook = () => {
                                         <FormItem>
                                             <FormLabel>Author</FormLabel>
                                             <FormControl>
-                                                <Input {...field} value={field.value || " "} />
+                                                <Input {...field} value={field.value || ""} required />
                                             </FormControl>
                                         </FormItem>
                                     )}
@@ -95,7 +98,7 @@ const AddBook = () => {
                                         <FormItem>
                                             <FormLabel>ISBN</FormLabel>
                                             <FormControl>
-                                                <Input {...field} value={field.value || " "} />
+                                                <Input {...field} value={field.value || ""} required />
                                             </FormControl>
                                         </FormItem>
                                     )}
@@ -107,7 +110,7 @@ const AddBook = () => {
                                         <FormItem>
                                             <FormLabel>Copies</FormLabel>
                                             <FormControl>
-                                                <Input {...field} value={field.value || " "} />
+                                                <Input {...field} value={field.value || ""} required/>
                                             </FormControl>
                                         </FormItem>
                                     )}
@@ -123,7 +126,7 @@ const AddBook = () => {
                                     <FormItem>
                                         <FormLabel>Description</FormLabel>
                                         <FormControl>
-                                            <Textarea {...field} value={field.value || " "} />
+                                            <Textarea {...field} value={field.value || ""} required/>
                                         </FormControl>
                                     </FormItem>
                                 )}
@@ -135,7 +138,7 @@ const AddBook = () => {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>Genre</FormLabel>
-                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value} required>
                                             <FormControl>
                                                 <SelectTrigger className="w-full">
                                                     <SelectValue placeholder="Select Genre" />

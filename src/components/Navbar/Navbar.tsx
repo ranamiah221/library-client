@@ -1,5 +1,5 @@
 import AddBook from "@/pages/AddBook";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -12,16 +12,44 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li className="list-none"><Link to='/books'>All Book</Link></li>
-                        <li className="list-none"><Link to='/borrow-summary'>Borrow summary</Link></li>
+                            <li className="list-none"><NavLink to='/'>
+                        {({ isActive }) => (
+                            <span className={isActive ? "text-black font-bold" : ""}>Home</span>
+                        )}
+                    </NavLink></li>
+                        <li className="list-none"><NavLink to='/books'>
+                            {({ isActive }) => (
+                                <span className={isActive ? "text-black font-bold" : ""}>All Book</span>
+                            )}
+                        </NavLink></li>
+                        <li className="list-none"><NavLink to='/borrow-summary'>
+                            {({ isActive }) => (
+                                <span className={isActive ? "text-black font-bold" : ""}>Borrow summary</span>
+                            )}
+                        </NavLink></li>
+
                     </ul>
                 </div>
-                <h2 className="text-2xl font-medium">Library</h2>
+                <h2 className="text-2xl font-medium text-green-600">LIBRARY</h2>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li className="list-none"><Link to='/books'>All Book</Link></li>
-                    <li className="list-none"><Link to='/borrow-summary'>Borrow summary</Link></li>
+                     <li className="list-none"><NavLink to='/'>
+                        {({ isActive }) => (
+                            <span className={isActive ? "text-black font-bold" : ""}>Home</span>
+                        )}
+                    </NavLink></li>
+                    <li className="list-none"><NavLink to='/books'>
+                        {({ isActive }) => (
+                            <span className={isActive ? "text-black font-bold" : ""}>All Book</span>
+                        )}
+                    </NavLink></li>
+                    <li className="list-none"><NavLink to='/borrow-summary'>
+                        {({ isActive }) => (
+                            <span className={isActive ? "text-black font-bold" : ""}>Borrow summary</span>
+                        )}
+                    </NavLink></li>
+
                 </ul>
             </div>
             <div className="navbar-end">

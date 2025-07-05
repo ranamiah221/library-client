@@ -13,7 +13,14 @@ const BookCard = ({ book }: IProps) => {
                 <p>{description}</p>
                 <p>Author: {author}</p>
                 <p>Copies: {copies}</p>
-                <p className="text-base font-bold">{genre}</p>
+                <p  className={cn("text-base font-bold", {
+                    "text-green-500": genre == 'NON_FICTION',
+                    "text-purple-700":  genre== 'FICTION',
+                    "text-red-500": genre =='SCIENCE',
+                    "text-cyan-500": genre =='FANTASY',
+                    "text-yellow-500":genre =='BIOGRAPHY'
+                }
+                )}>{genre}</p>
                 <Link to={`/${_id}`}><button className="btn bg-green-500 text-white rounded-lg">Book Details</button></Link>
 
               
